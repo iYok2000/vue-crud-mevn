@@ -3,7 +3,7 @@
   <div id="nav">
     <router-link to="/" >Home</router-link>&nbsp;
     <router-link to="/news" >News</router-link> &nbsp;
-    <router-link to="/bmi"> BMI </router-link> &nbsp;
+    <router-link to="/calculate"> Calculate </router-link> &nbsp;
     <router-link to="/about">About</router-link> &nbsp;
   </div>
   <!-- Router view -->
