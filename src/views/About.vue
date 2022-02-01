@@ -28,7 +28,7 @@
             <span
               onclick="document.getElementById('id01').style.display='none'"
               class="w3-button w3-display-topright"
-              >×</span
+              ></span
             >
           </header>
           <div class="w3-padding">

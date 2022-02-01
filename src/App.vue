@@ -1,10 +1,10 @@
 <template>
   <!-- navbar -->
   <div id="nav">
-    <router-link to="/" >Home</router-link>&nbsp;
-    <router-link to="/news" >News</router-link> &nbsp;
-    <router-link to="/calculate"> Calculate </router-link> &nbsp;
-    <router-link to="/about">About</router-link> &nbsp;
+    <router-link to="/" >หน้าแรก</router-link>&nbsp;
+    <router-link to="/news" >ความรู้สุขภาพ</router-link> &nbsp;
+    <router-link to="/calculate"> สูตรคำนวณร่างกาย </router-link> &nbsp;
+    <router-link to="/about">ติดต่อเรา</router-link> &nbsp;
   </div>
   <!-- Router view -->
 
@@ -25,6 +25,9 @@
 #nav {
   padding: 20px;
   background-color: rgb(64, 151, 170);
+  border: 1px solid rgb(74, 182, 233);
+  display: flex;
+  justify-content: center;
 }
 h1,
 h3,

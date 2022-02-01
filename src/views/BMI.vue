@@ -24,13 +24,13 @@
         <form action="/">
           <div class="info">
             <input
-              type="text"
+              type="number"
               v-model="weight"
               name="name"
               placeholder="น้ำหนัก (กิโลกรัม)"
             />
             <input
-              type="text"
+              type="number"
               v-model="hight"
               name="name"
               placeholder="ส่วนสูง ( เมตร )"
@@ -38,12 +38,18 @@
             <h3>ค่า BMI ที่ได้คือ {{ sumBMI }}</h3>
           </div>
         </form>
+        
+      </div>
+      <div class="topnav">
+        <router-link to="/bmr"> ไปที่หน้า  คำนวณค่า BMR </router-link> 
+        <router-link to="/bmi"> ไปที่หน้า  คำนวณค่า BMI </router-link> 
+        <router-link to="/iwc"> ไปที่หน้า คำนวณค่า น้ำหนักที่เหมาะสมกับคุณ </router-link>
       </div>
       <br />
-
-      <h2 align="center" >ตารางรายละเอียดค่า BMI</h2>
+      
+      <h2 align="center">ตารางรายละเอียดค่า BMI</h2>
       <br />
-
+      
       <table align="center">
         <tr>
           <th>ค่าดัชนีมวลกาย ( BMI )</th>
@@ -89,7 +95,8 @@
       <div class="w3-content">
         <div class="w3-row w3-margin">
           <div class="w3-third">
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoGBxQTEhYSEhQWGBYYGhkaFhgWGhobGhofHRYYGBoWHRkaICsiHBwoHxkcJTQjKiwuMTIxGiE5PDc8OyswMS4BCwsLDw4PHRERHTEpIigw
+            <img
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoGBxQTEhYSEhQWGBYYGhkaFhgWGhobGhofHRYYGBoWHRkaICsiHBwoHxkcJTQjKiwuMTIxGiE5PDc8OyswMS4BCwsLDw4PHRERHTEpIigw
             MDA5MjAwMDAwMDEwMTAyMjAwMTkwMDAwLi4wMDAwMDAyMDAwMjAwMDAwMDAwMDkwMP/AABEIALEBHAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcCAQj/xABIEAACAQMCAwU
             GAgYGCAYDAAABAgMABBESIQUGMRNBUWFxByIygZGhFCNCUmKCorEkM3LB0fAWQ1NjkpPC4XN0o6SztCVUZP/EABoBAQADAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAnEQACAgIBBAICAgMAAAAAAAAAAQIRAxIh
             BDFBURNxBTJCgRWRof/aAAwDAQACEQMRAD8A7NSlKAUpXygFKonMXO8hJisEVvf7JZXGoSS5I7OJcjVgg6pGIVdLH3sHH3g/NHYIUluH4hdE/mC3RBFGf9mHAWNQO/U2o4zjuqm8eXfYtpLjjuXqvDuAMkgAdSdhVIn45
@@ -156,12 +163,11 @@
             l2PGRHH70EZz9c/Su/VzX2u+z2biEkMtqsIdVdZS50s3waNwp1AYbr0zQHMLa+WGWGZiAI5YpD44SVHOB3nANfpaNwQCCCD0I6GuES+wu9CIyTW5cj31Yuuk5OwYKdW2N8CrJ7NfZ9xKwuleW5jW3AbtIkd2D5Ug
             e4VCgg4Orrt50ISOr0pShIpSlAKUpQClKUApSlAc8545ZvGuGntVWRHC6kLAMrBdJPvEArgA7EnOdqhrXkbiM/uS6YEPxN7rePQK2T6HT1611ylARHLfLlvZR9nbxhc/Gx3dz+szdT6dB3ACpeleHXII8dtqA4zx
             jiPayyyZzrdiD5ZOn7YqDuIi2FAzqZV+ZIAH3qyTez/iMTFUEUqDZW1LkjuJD6dJx1G/rUryv7P7kzxzXrIqRsHWJDqLEbjUQAqrnBwNROMZAzkDplKUoBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoBSlK
-            AUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgP/2Q==" 
-            style="width: 100%; min-height: 100%" />
-
-
+            AUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgFKUoBSlKAUpSgP/2Q=="
+              style="width: 100%; min-height: 100%"
+            />
           </div>
-          <div class="w3-twothird ">
+          <div class="w3-twothird">
             <h4>รายละเอียด</h4>
             <p>
               ดัชนีมวลกาย หรือ Body mass index (BMI) คิดค้นขึ้นโดย Adolphe
@@ -204,6 +210,32 @@ h4 {
 p {
   color: #080505;
 }
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: center;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  /*align-items: center;
+  justify-content: center;
+  justify-items: center;
+  */
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
 h3 {
   font-weight: 400;
@@ -217,7 +249,7 @@ h3 {
   border-radius: 20px;
   border: 1px solid rgb(214, 213, 230);
   background: #d1ccc0;
-  margin-top: 10px ;
+  margin-top: 10px;
 }
 h2 {
   color: #1c87c9;
@@ -226,7 +258,7 @@ h2 {
   border-radius: 20px;
   border: 1px solid rgb(214, 213, 230);
   background: #d1ccc0;
-  margin-top: 10px ;
+  margin-top: 10px;
   justify-content: center;
 }
 .main-block,
@@ -355,7 +387,6 @@ export default {
     return {
       weight: "",
       hight: "",
-      
     };
   },
 

@@ -46,7 +46,17 @@ const routes = [
   {
     path: '/calculate',
     name: 'Calculate',
-    component: () => import(/* webpackChunkName: "News" */ '../views/Calculate.vue')
+    component: () => import(/* webpackChunkName: "Calculate" */ '../views/Calculate.vue')
+  },
+  {
+    path: '/bmr',
+    name: 'BMR',
+    component: () => import(/* webpackChunkName: "BMR" */ '../views/BMR.vue')
+  },
+  {
+    path: '/iwc',
+    name: 'IWC',
+    component: () => import(/* webpackChunkName: "IWC" */ '../views/IWC.vue')
   },
 ]
 
