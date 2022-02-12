@@ -44,6 +44,8 @@
         <router-link to="/bmr"> ไปที่หน้า  คำนวณค่า BMR </router-link> 
         <router-link to="/bmi"> ไปที่หน้า  คำนวณค่า BMI </router-link> 
         <router-link to="/iwc"> ไปที่หน้า คำนวณค่า น้ำหนักที่เหมาะสมกับคุณ </router-link>
+        <router-link to="/bfat"> ไปที่หน้าคำนวณ Body Fat </router-link>
+             
       </div>
       <br />
       

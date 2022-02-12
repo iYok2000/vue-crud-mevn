@@ -8,7 +8,7 @@
               <form id="contact" action="" method="post">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Ideal weight calculator</h2>
+                    <h2>Body Fat calculator<br />คำนวณปริมาณไขมันในร่างกาย</h2>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
@@ -22,25 +22,59 @@
                     <fieldset>
                       <label class="container"
                         >หญิง
-                        <input type="radio" checked="checked" name="radio" @click="Onclick_women"/>
+                        <input
+                          type="radio"
+                          checked="checked"
+                          name="radio"
+                          @click="Onclick_women"
+                        />
                       </label>
                     </fieldset>
                   </div>
-                  <div class="col-12">
-                    <fieldset required>
-                      <textarea
-                        v-model="height"
-                        type="text"
-                        placeholder="ส่วนสูงของคุณ ( เซนติเมตร )"
-                      ></textarea>
-                    </fieldset>
+                  <div class="col-5 " >
+                    <input
+                      type="text"
+                      class="register-input"
+                      v-model="weight"
+                      placeholder="น้ำหนัก ( กิโลกรัม )"
+                    />
+                    <input
+                      type="text"
+                      class="register-input"
+                      v-model="waistline"
+                      placeholder="รอบเอว บริเวณสะดือ  ( นิ้ว )"
+                    />
+                    <div v-show="!c_men">
+                        <input
+                        
+                      type="text"
+                      class="register-input"
+                      v-model="wrist"
+                      placeholder="รอบข้อมือ ( นิ้ว )"
+                    />
+                     <input
+                    
+                      type="text"
+                      class="register-input"
+                      v-model="hips"
+                      placeholder="รอบสะโพก ( นิ้ว )"
+                    />
+                     <input
+                    
+                      type="text"
+                      class="register-input"
+                      v-model="upperarm"
+                      placeholder="รอบต้นแขน ( นิ้ว )"
+                    />
+                    </div>
+                    <br />
                   </div>
 
-                  <h3 class="hed3">น้ำหนักที่เหมาะสมกับคุณ คือ {{ SUM }}</h3>
-
+                  <h3 class="hed3">ปริมาณไขมันในร่างกาย คือ {{ percend_fat }} เปอร์เซ็น</h3>
+                  
                   <div class="col-lg-12">
                     <fieldset>
-                      <button type="button" @click="Onclick_sunmit" >
+                      <button type="button" @click="Onclick_sunmit">
                         คำนวณ
                       </button>
                     </fieldset>
@@ -92,32 +126,52 @@
 export default {
   data() {
     return {
-      height: "",
-      ck:"",
-      c_men:"",
-      real_height:"",
-      IWC:"",
+        ck: "",
+        c_men: "",
+        weight: "",
+        r_weight: "",
+        waistline:"",
+        wrist:"",
+        hips:"",
+        upperarm:"",
+        sum:"",
+        weight_p:"",
+        percend_fat:""
+        
     };
   },
   methods: {
     Onclick_men() {
-      return this.c_men = true 
+      return this.c_men = true;
     },
     Onclick_women() {
-      return this.c_men = false 
+      return this.c_men = false;
     },
     Onclick_sunmit() {
-      if( this.c_men == true)
-        return  this.ck = 0.90
-      else
-        return this.ck = 0.85
-    }
+      if(this.c_men == true)
+        return this.percend_fat = (Number(this.bfm)*100)/Number(this.toPond)
+      else 
+        return this.percend_fat = (Number(this.bfm_women)*100)/Number(this.toPond)
+    },
   },
   computed: {
-    SUM() {
-      return (Number(this.height)-100)* Number(this.ck)
+    toPond() {
+      return  Number(this.weight)*2.2
+    },
+    lbm() {
+      return ((Number(this.toPond)*1.082)+94.42) - (Number(this.waistline)*4.15)
+    },
+    bfm() {
+      return Number(this.toPond) - Number(this.lbm)
+    },
+    lbm_women(){
+      return ((Number(this.toPond)*0.732)+8.987) + (Number(this.wrist)/3.14) - (Number(this.waistline)*0.157) - (Number(this.hips)*0.249) + (Number(this.upperarm)*0.434) 
+    },
+    bfm_women() {
+      return Number(this.toPond) - Number(this.lbm_women)
     }
   }
+  
 };
 </script>
 <style scoped>
@@ -140,6 +194,8 @@ section.contact-us #contact {
   background-color: #fff;
   border-radius: 20px;
   padding: 40px;
+  height: 850px;
+  
 }
 
 section.contact-us #contact h2 {
@@ -243,6 +299,20 @@ section.contact-us .right-info ul li span {
   font-size: 18px;
   color: #fff;
   font-weight: 700;
+}
+.register-input {
+  display: block;
+  width: 100%;
+  height: 38px;
+  margin-top: 2px;
+  font-weight: 500;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+.register-input:focus {
+  border-color: #1e9ce6;
+  outline: 0;
 }
 
 .footer {

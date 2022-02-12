@@ -114,8 +114,8 @@
                 <router-link to="/iwc"> คลิ๊กที่นี่ </router-link>
               </li>
               <li>
-                <h6>Website URL</h6>
-                <span>www.meeting.edu</span>
+                <h6>ไปที่หน้าคำนวณ Body Fat</h6>
+                <router-link to="/bfat"> คลิ๊กที่นี่ </router-link>
               </li>
             </ul>
           </div>

@@ -3,6 +3,9 @@ import Home from '../views/Home.vue'
 import CreateComponent from '../components/CreateComponent.vue'
 import ListComponent from '../components/ListComponent.vue'
 import EditComponent from '../components/EditComponent.vue'
+import BlogCreate from '../components/BlogCreate.vue'
+import BlogEdit from '../components/BlogEdit.vue'
+import BlogList from '../components/ฺBlogList.vue'
 
 const routes = [
   {
@@ -25,6 +28,24 @@ const routes = [
     component: CreateComponent
   },
   {
+    path: '/blogCreate',
+    name: 'blogCreate',
+    
+    component: BlogCreate
+  },
+  {
+    path: '/blogEdit',
+    name: 'blogEdit',
+    
+    component: BlogEdit
+  },
+  {
+    path: '/blogList',
+    name: 'blogList',
+    
+    component: BlogList
+  },
+  {
     path: '/view',
     name: 'view',
     component: ListComponent
@@ -33,10 +54,16 @@ const routes = [
     path: '/edit/:id',
     name: 'edit',
     component: EditComponent
-  },{
+  },
+  {
     path: '/news',
     name: 'News',
     component: () => import(/* webpackChunkName: "News" */ '../views/News.vue')
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import(/* webpackChunkName: "Blogs" */ '../views/Blog.vue')
   },
   {
     path: '/bmi',
@@ -57,6 +84,21 @@ const routes = [
     path: '/iwc',
     name: 'IWC',
     component: () => import(/* webpackChunkName: "IWC" */ '../views/IWC.vue')
+  },
+  {
+    path: '/bfat',
+    name: 'BFAT',
+    component: () => import(/* webpackChunkName: "BFAT" */ '../views/BFAT.vue')
+  },
+  {
+    path: '/calroriestable',
+    name: 'CALRORIESTABLE',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Calroriestable.vue')
+  },
+  {
+    path: '/egg',
+    name: 'EGG',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/egg.vue')
   },
 ]
 

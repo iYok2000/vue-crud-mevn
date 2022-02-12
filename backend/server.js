@@ -17,6 +17,7 @@ mongoose.connect(database.db, {
 
 const createError = require('http-errors');
 const taskAPI = require('./routes/task.route');
+const blogAPI = require('./routes/blogs');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -26,7 +27,7 @@ app.use(cors());
 
 // API
 app.use('/api', taskAPI);
-
+app.use('/apiblog',blogAPI);
 // CREATE PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {

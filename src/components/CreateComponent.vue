@@ -18,6 +18,7 @@
                     <br><label for="name">ผู้เขียน</label>
                     <br><input type="text" class="form-control" v-model="task.aka" required>
                 </div>
+                
 
                 <div class="form-group"><br>
                     <button class="btn btn-success btn-block"> Create</button>

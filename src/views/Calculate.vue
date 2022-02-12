@@ -46,9 +46,9 @@
           <router-link to="/iwc"> Click here </router-link> &nbsp;
         </div>
         <div class="item-row">
-          <h2>4</h2>
+          <h2>คำนวณค่า Body Fat</h2>
           <i class="fa fa-database" aria-hidden="true"></i>
-          <router-link to="/bmi"> Click here </router-link> &nbsp;
+          <router-link to="/bfat"> Click here </router-link> &nbsp;
         </div>
       </div>
       <div class="footer">

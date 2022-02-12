@@ -2,7 +2,9 @@
   <!-- navbar -->
   <div id="nav">
     <router-link to="/" >หน้าแรก</router-link>&nbsp;
+    <router-link to="/blog" >ข่าวสาร</router-link> &nbsp;
     <router-link to="/news" >ความรู้สุขภาพ</router-link> &nbsp;
+    <router-link to="/calroriestable" >ตารางพลังงานในอาหาร</router-link>&nbsp;
     <router-link to="/calculate"> สูตรคำนวณร่างกาย </router-link> &nbsp;
     <router-link to="/about">ติดต่อเรา</router-link> &nbsp;
   </div>

@@ -4,6 +4,7 @@ const taskRoute = express.Router();
 //task model
 let TaskModel = require('../models/task');
 
+ // http://localhost:4000/api/create-task
 //get all data
 taskRoute.route('/').get((_req, res, next) => {
     TaskModel.find((error, data) => {
@@ -26,7 +27,9 @@ taskRoute.route('/create-task').post((req, res, next) => {
     })
 })
 
-// Edit task Data
+
+
+//get task Data
 taskRoute.route('/edit-task/:id').get((req, res, next) => {
     TaskModel.findById(req.params.id, (error, data) => {
         if (error) {
@@ -36,6 +39,7 @@ taskRoute.route('/edit-task/:id').get((req, res, next) => {
         }
     })
 })
+
 
 // Update task Data
 taskRoute.route('/update-task/:id').put((req, res, next) => {
@@ -50,6 +54,8 @@ taskRoute.route('/update-task/:id').put((req, res, next) => {
         }
     })
 })
+
+
 
 // Delete task Data
 taskRoute.route('/delete-task/:id').delete((req, res, next) => {
@@ -66,3 +72,4 @@ taskRoute.route('/delete-task/:id').delete((req, res, next) => {
 })
 
 module.exports = taskRoute;
+
