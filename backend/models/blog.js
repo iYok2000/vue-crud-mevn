@@ -12,8 +12,7 @@ let taskSchema = new Schema({
         type: String
     },
     images: {
-        type: String,
-        default: 'placeholder.jpg',
+        type: Buffer, required: true
     }
 }, {
     collection: 'blog'

@@ -25,8 +25,7 @@
         <h1 class="hed3">ตารางพลังงานจากอาหาร <br> Calrories Table</h1>
     </div>
   </div>
-  <h1 align="center"> พลังงานในไข่ </h1>
- 
+  <h1 align="center"> พลังงานในกุ้งและสัตว์น้ำ </h1>
 <div style="overflow-x:auto;">
    <div class="position">
     <button class="button" @click="clicktoback">Back</button>
@@ -39,81 +38,220 @@
       
     </tr>
     <tr>
-      <td>ไข่ไก่</td>
+      <td>กระเพาะปลา, ทอด</td>
       <td>100 g</td>
-      <td>160</td>
+      <td>682</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองเล็ก</td>
-     <td>60</td>
-    </tr>
-    <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองใหญ่</td>
-      <td>80</td>
-      
-    </tr>
-    <tr>
-      <td>ไข่เป็ด</td>
-      <td>100 g </td>
-      <td>186</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 100 g</td>
-      <td>171</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองเล็ก</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองใหญ่</td>
-      <td> 88</td>
-    </tr>
-    <tr>
-      <td>ไข่นกกระทา</td>
+      <td>กุ้งกุลาดำ, เนื้อ</td>
       <td>100 g</td>
-      <td>  171</td>
+     <td>92</td>
     </tr>
     <tr>
-      <td>ไข่นกกระทา, ทั้งฟอง</td>
-      <td>1 ฟอง</td>
-      <td> 15</td>
+      <td>กุ้งกุลาดำ, หัว</td>
+     <td>100 g</td>
+      <td>120</td>
     </tr>
     <tr>
-      <td>ไข่ปลากระบอก, เค็ม</td>
+      <td>กุ้งเคย</td>
       <td>100 g</td>
-      <td> 480</td>
+      <td>61</td>
     </tr>
     <tr>
-      <td> ไข่จระเข้, ไข่ขาว</td>
+      <td>กุ้งจ่อม (กุ้งหมักข้าวคั่ว)</td>
       <td>100 g</td>
-      <td> 15</td>
+      <td>135</td>
+    </tr>
+     <tr>
+      <td>กุ้งฝอย, สด</td>
+     <td>100 g</td>
+      <td>88</td>
+    </tr>
+     <tr>
+      <td>กุ้งส้ม(กุ้งหมัก)</td>
+     <td>100 g</td>
+      <td>58</td>
+    </tr>
+     <tr>
+      <td>กุ้งแห้งตัวเล็ก</td>
+     <td>100 g</td>
+      <td>263</td>
+    </tr>
+     <tr>
+      <td>ไตปลากระบอก</td>
+     <td>100 g</td>
+      <td>90</td>
+    </tr>
+     <tr>
+      <td>น้ำปู</td>
+     <td>100 g</td>
+      <td>210</td>
+    </tr>
+     <tr>
+      <td>ปลากดทะเล, แห้ง</td>
+     <td>100 g</td>
+      <td>210</td>
+    </tr>
+     <tr>
+      <td>ปลากดทะเล, แห้ง</td>
+     <td>100 g</td>
+      <td>219</td>
+    </tr>
+     <tr>
+      <td>ปลากระบอก</td>
+     <td>100 g</td>
+      <td>98</td>
+    </tr>
+     <tr>
+      <td>ปลากราย</td>
+     <td>100 g</td>
+      <td>84</td>
+    </tr>
+     <tr>
+      <td>ปลาเจ่า</td>
+     <td>100 g</td>
+      <td>117</td>
+    </tr>
+     <tr>
+      <td>ปลาช่อน</td>
+     <td>100 g</td>
+      <td>122</td>
+    </tr>
+     <tr>
+      <td>ปลาช่อนทะเล, แห้ง</td>
+     <td>100 g</td>
+      <td>185</td>
+    </tr>
+     <tr>
+      <td>ปลาดุก</td>
+     <td>100 g</td>
+      <td>114</td>
     </tr>
     <tr>
-      <td>ไข่จระเข้, ไข่แดง</td>
-      <td>100 g</td>
-      <td>228</td>
+      <td>ปลาแดง, ปลาทะเล, สด</td>
+     <td>100 g</td>
+      <td>120</td>
     </tr>
     <tr>
-      <td>ไข่จระเข้, ไข่ทั้งฟอง</td>
-      <td>100 g</td>
-      <td>128</td>
+      <td>ปลาตะเพียน</td>
+     <td>100 g</td>
+      <td>111</td>
     </tr>
     <tr>
-      <td>ไข่มดแดงและตัวอ่อน</td>
-      <td>100 g</td>
+      <td>ปลาตาเดียว (ปลาซีกเดียว)</td>
+     <td>100 g</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>ปลาตาโต</td>
+     <td>100 g</td>
+      <td>117</td>
+    </tr>
+    <tr>
+      <td>ปลานิล</td>
+     <td>100 g</td>
+      <td>129</td>
+    </tr>
+    <tr>
+      <td>ปลาทู, นึ่ง</td>
+     <td>100 g</td>
+      <td>136</td>
+    </tr>
+    <tr>
+      <td>ปลาทู, สด</td>
+     <td>100 g</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <td>ปลาทูน่า, สด</td>
+     <td>100 g</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>ปลาทูน่า, ในน้ำมัน</td>
+     <td>100 g</td>
+      <td>218</td>
+    </tr>
+    <tr>
+      <td>ปลาทูน่า, ในน้ำสลัด</td>
+     <td>100 g</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>ปูทะเล</td>
+     <td>100 g</td>
+      <td>117</td>
+    </tr>
+    <tr>
+      <td>ปูม้า</td>
+     <td>100 g</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>ลูกชิ้นปลา</td>
+     <td>100 g</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>ลูกชิ้นปลา, ทอด</td>
+     <td>100 g</td>
+      <td>277</td>
+    </tr>
+    <tr>
+      <td>ลูกชิ้นกุ้ง, ทอด</td>
+     <td>100 g</td>
+      <td>213</td>
+    </tr>
+    <tr>
+      <td>สมันปลา</td>
+     <td>100 g</td>
+      <td>386</td>
+    </tr>
+    <tr>
+      <td>หอยกะพง</td>
+     <td>100 g</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>หอยขม</td>
+     <td>100 g</td>
       <td>74</td>
     </tr>
-   
+    <tr>
+      <td>หอยโข่ง</td>
+     <td>100 g</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>หอยแครง</td>
+     <td>100 g</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>หอยนางรม</td>
+     <td>100 g</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>หอยจูน</td>
+     <td>100 g</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>หอยแมลงภู่</td>
+     <td>100 g</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <td>หูฉลาม, แห้ง</td>
+     <td>100 g</td>
+      <td>358</td>
+    </tr>
+    
   </table>
 </div>
   <div class="grid-container">
-    <div class="item">
+   <div class="item">
         <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-918.png"
@@ -121,10 +259,10 @@
           />
         </div>
         <div class="item-content">
-           <router-link to="/egg"> พลังงานในไข่ </router-link> &nbsp;
+          <router-link to="/egg"> พลังงานในไข่ </router-link> &nbsp;
         </div>
-    </div>
-    <div class="item col-20-100 col">
+      </div>
+      <div class="item col-20-100 col">
         <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-755.png"
@@ -136,7 +274,7 @@
         </div>
       </div>
     <div class="item col-20-100 col">
-     <div class="item-img">
+      <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-754.png"
             alt="พลังงานในเนื้อสัตว์"
@@ -147,7 +285,7 @@
         </div>
       </div>
     <div class="item col-20-100 col">
-     <div class="item-img">
+    <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-695.png"
             alt="พลังงานในวัตถุดิบประเภทผัก"
@@ -192,7 +330,7 @@
         </div>
     </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+     <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-667.png"
             alt="พลังงานของถั่วและงา"

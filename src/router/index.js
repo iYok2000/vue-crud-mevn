@@ -100,6 +100,41 @@ const routes = [
     name: 'EGG',
     component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/egg.vue')
   },
+  {
+    path: '/fish',
+    name: 'FISH',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/fish.vue')
+  },
+  {
+    path: '/meat',
+    name: 'MEAT',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/meat.vue')
+  },
+  {
+    path: '/veg',
+    name: 'VEG',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/veg.vue')
+  },
+  {
+    path: '/food',
+    name: 'FOOD',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/food.vue')
+  },
+  {
+    path: '/fruit',
+    name: 'FRUIT',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/fruit.vue')
+  },
+  {
+    path: '/milk',
+    name: 'MILK',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/milk.vue')
+  },
+  {
+    path: '/been',
+    name: 'BEEN',
+    component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/been.vue')
+  },
 ]
 
 const router = createRouter({

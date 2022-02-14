@@ -25,8 +25,7 @@
         <h1 class="hed3">ตารางพลังงานจากอาหาร <br> Calrories Table</h1>
     </div>
   </div>
-  <h1 align="center"> พลังงานในไข่ </h1>
- 
+  <h1 align="center"> พลังงานในวัตถุดิบประเภทผัก </h1>
 <div style="overflow-x:auto;">
    <div class="position">
     <button class="button" @click="clicktoback">Back</button>
@@ -39,77 +38,186 @@
       
     </tr>
     <tr>
-      <td>ไข่ไก่</td>
+      <td>กระเจี๊ยบเปรี้ยว,ใบ</td>
       <td>100 g</td>
-      <td>160</td>
+      <td>48</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองเล็ก</td>
-     <td>60</td>
+      <td>กระเจี๊ยบมอญ,ฝักอ่อน</td>
+       <td>100 g</td>
+     <td>26</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองใหญ่</td>
+      <td>กระชาย</td>
+       <td>100 g</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>กระโดน(โดน),ยอด</td>
+      <td>100 g</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <td>กระถิน,ยอดอ่อน</td>
+      <td>100 g</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <td>กระทือขาว</td>
+      <td>100 g</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>กระทือแดง</td>
+      <td>100 g</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>กรุงเขมา, ใบ</td>
+      <td>100 g</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>กรุงเขมา, น้ำคั้นจากใบ</td>
+      <td>100 g</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>กะทกรก, ยอด</td>
+      <td>100 g</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>กะเพราแดง,ใบ</td>
+      <td>100 g</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>กะหล่ำ,ดอก</td>
+      <td>100 g</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>กะหล่ำปลี</td>
+      <td>100 g</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>กุยฉ่าย,ดอก</td>
+      <td>100 g</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>ขจร,ดอก</td>
+      <td>100 g</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>ขนุน,อ่อน</td>
+      <td>100 g</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>ขมิ้นขาว</td>
+      <td>100 g</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>ข้าวโพด,อ่อน</td>
+      <td>100 g</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>ข้าวสาร,ดอก</td>
+      <td>100 g</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <td>ข่าอ่อน,หน่อ</td>
+      <td>100 g</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>ข่าอ่อน,หัว</td>
+      <td>100 g</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>ขิงแก่</td>
+      <td>100 g</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>ขิง,อ่อน</td>
+      <td>100 g</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>ขี้เหล็ก, ยอดและใบอ่อน</td>
+      <td>100 g</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <td>ขี้เหล็ก, ดอก</td>
+      <td>100 g</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>คื่นช่าย</td>
+      <td>100 g</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>คูน</td>
+      <td>100 g</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>แค, ดอก</td>
+      <td>100 g</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <td>แค, ยอด</td>
+      <td>100 g</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>แครอท</td>
+      <td>100 g</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>จำปานา</td>
+      <td>100 g</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>จิก, ยอด</td>
+      <td>100 g</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>ชะพลู,ใบ</td>
+      <td>100 g</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <td>ชะมวง,ใบ</td>
+      <td>100 g</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>ชะอม, ยอด</td>
+      <td>100 g</td>
       <td>80</td>
-      
     </tr>
     <tr>
-      <td>ไข่เป็ด</td>
-      <td>100 g </td>
-      <td>186</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 100 g</td>
-      <td>171</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองเล็ก</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองใหญ่</td>
-      <td> 88</td>
-    </tr>
-    <tr>
-      <td>ไข่นกกระทา</td>
+      <td>ดอกงิ้วแดง, แห้ง</td>
       <td>100 g</td>
-      <td>  171</td>
+      <td>317</td>
     </tr>
-    <tr>
-      <td>ไข่นกกระทา, ทั้งฟอง</td>
-      <td>1 ฟอง</td>
-      <td> 15</td>
-    </tr>
-    <tr>
-      <td>ไข่ปลากระบอก, เค็ม</td>
-      <td>100 g</td>
-      <td> 480</td>
-    </tr>
-    <tr>
-      <td> ไข่จระเข้, ไข่ขาว</td>
-      <td>100 g</td>
-      <td> 15</td>
-    </tr>
-    <tr>
-      <td>ไข่จระเข้, ไข่แดง</td>
-      <td>100 g</td>
-      <td>228</td>
-    </tr>
-    <tr>
-      <td>ไข่จระเข้, ไข่ทั้งฟอง</td>
-      <td>100 g</td>
-      <td>128</td>
-    </tr>
-    <tr>
-      <td>ไข่มดแดงและตัวอ่อน</td>
-      <td>100 g</td>
-      <td>74</td>
-    </tr>
-   
+
   </table>
 </div>
   <div class="grid-container">
@@ -147,7 +255,7 @@
         </div>
       </div>
     <div class="item col-20-100 col">
-     <div class="item-img">
+        <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-695.png"
             alt="พลังงานในวัตถุดิบประเภทผัก"
@@ -169,7 +277,7 @@
         </div>
     </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+       <div class="item-img">
             <img
               src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-654.png"
               alt="พลังงานของผลไม้"

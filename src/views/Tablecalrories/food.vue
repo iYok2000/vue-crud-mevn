@@ -25,10 +25,9 @@
         <h1 class="hed3">ตารางพลังงานจากอาหาร <br> Calrories Table</h1>
     </div>
   </div>
-  <h1 align="center"> พลังงานในไข่ </h1>
- 
+  <h1 align="center"> พลังงานในวัตถุดิบประเภทข้าว </h1>
 <div style="overflow-x:auto;">
-   <div class="position">
+  <div class="position">
     <button class="button" @click="clicktoback">Back</button>
   </div>
   <table>
@@ -39,77 +38,127 @@
       
     </tr>
     <tr>
-      <td>ไข่ไก่</td>
+      <td>ข้าวเจ้า, 100 %</td>
       <td>100 g</td>
-      <td>160</td>
+      <td>353</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองเล็ก</td>
-     <td>60</td>
+      <td>ข้าวเจ้า, 5 %</td>
+      <td>100 g</td>
+     <td>352</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองใหญ่</td>
-      <td>80</td>
+      <td>ข้าวเจ้า,เคลือบวิตามินบี</td>
+     <td>100 g</td>
+      <td>354</td>
       
     </tr>
     <tr>
-      <td>ไข่เป็ด</td>
-      <td>100 g </td>
-      <td>186</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 100 g</td>
-      <td>171</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองเล็ก</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองใหญ่</td>
-      <td> 88</td>
-    </tr>
-    <tr>
-      <td>ไข่นกกระทา</td>
+      <td>ข้าวเจ้า, ซ้อมมือ</td>
       <td>100 g</td>
-      <td>  171</td>
+      <td>358</td>
     </tr>
     <tr>
-      <td>ไข่นกกระทา, ทั้งฟอง</td>
-      <td>1 ฟอง</td>
-      <td> 15</td>
-    </tr>
-    <tr>
-      <td>ไข่ปลากระบอก, เค็ม</td>
+      <td>ข้าวเจ้า, นึ่ง (ข้าวสวย)</td>
       <td>100 g</td>
-      <td> 480</td>
+      <td>141</td>
     </tr>
-    <tr>
-      <td> ไข่จระเข้, ไข่ขาว</td>
+     <tr>
+      <td>ปลายข้าว, ข้าวเจ้า</td>
       <td>100 g</td>
-      <td> 15</td>
+      <td>357</td>
     </tr>
-    <tr>
-      <td>ไข่จระเข้, ไข่แดง</td>
+     <tr>
+      <td>ข้าวเจ้า, ชุมแสง</td>
       <td>100 g</td>
-      <td>228</td>
+      <td>355</td>
     </tr>
-    <tr>
-      <td>ไข่จระเข้, ไข่ทั้งฟอง</td>
+     <tr>
+      <td>ข้าวเจ้า, สามพันธุ์</td>
       <td>100 g</td>
-      <td>128</td>
+      <td>362</td>
     </tr>
-    <tr>
-      <td>ไข่มดแดงและตัวอ่อน</td>
+     <tr>
+      <td>ข้าวเจ้า,สาวไห้</td>
       <td>100 g</td>
-      <td>74</td>
+      <td>356</td>
     </tr>
-   
+     <tr>
+      <td>ข้าวกล้อง,หอมมะลิ</td>
+      <td>100 g</td>
+      <td>366</td>
+    </tr>
+     <tr>
+      <td>ข้าวเจ้า,หอมมะลิ</td>
+      <td>100 g</td>
+      <td>356</td>
+    </tr>
+     <tr>
+      <td>ข้าวบัสมาตี</td>
+      <td>100 g</td>
+      <td>356</td>
+    </tr>
+     <tr>
+      <td>ข้าวบาเลย์</td>
+      <td>100 g</td>
+      <td>354</td>
+    </tr>
+     <tr>
+      <td>ข้าวโพด, (เหลือง), ดิบ</td>
+      <td>100 g</td>
+      <td>111</td>
+    </tr>
+     <tr>
+      <td>ข้าวโพด(เหลือง),ต้ม</td>
+      <td>100 g</td>
+      <td>117</td>
+    </tr>
+     <tr>
+      <td>ข้าวฟ่าง</td>
+      <td>100 g</td>
+      <td>371</td>
+    </tr>
+     <tr>
+      <td>ข้าวมันปู</td>
+      <td>100 g</td>
+      <td>366</td>
+    </tr>
+     <tr>
+      <td>ข้าวสาลี</td>
+      <td>100 g</td>
+      <td>365</td>
+    </tr>
+     <tr>
+      <td>ข้าวสาลี,จมูกข้าว,อบ</td>
+      <td>100 g</td>
+      <td>414</td>
+    </tr>
+     <tr>
+      <td>ข้าวสาลี,รำข้าว</td>
+      <td>100 g</td>
+      <td>358</td>
+    </tr>
+     <tr>
+      <td>ข้าวเหนียว</td>
+      <td>100 g</td>
+      <td>355</td>
+    </tr>
+     <tr>
+      <td>ข้าวเหนียว,ข้าวกล้อง</td>
+      <td>100 g</td>
+      <td>362</td>
+    </tr>
+     <tr>
+      <td>ข้าวเหนียว,ดำ</td>
+      <td>100 g</td>
+      <td>364</td>
+    </tr>
+     <tr>
+      <td>ข้าวเหนียว,สุก, นึ่ง</td>
+      <td>100 g</td>
+      <td>231</td>
+    </tr>
+
   </table>
 </div>
   <div class="grid-container">
@@ -158,7 +207,7 @@
         </div>
     </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+        <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-634.png"
             alt="พลังงานในอาหารจานเดียวประเภทข้าว"
@@ -169,7 +218,7 @@
         </div>
     </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+       <div class="item-img">
             <img
               src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-654.png"
               alt="พลังงานของผลไม้"
@@ -192,7 +241,7 @@
         </div>
     </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+     <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-667.png"
             alt="พลังงานของถั่วและงา"

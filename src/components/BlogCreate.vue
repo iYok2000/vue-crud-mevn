@@ -38,7 +38,7 @@
         <div class="col">
               <form method="post" action="/upload" enctype="multipart/form-data">
                   <label for="firstname">Upload</label>
-                  <input type="file" class="form-control" name="fileupload" @input="handleFileChange" required>
+                  <input type="file" id="images" class="form-control" name="fileupload" @change="handleFileChange" required>
               </form>
             </div>
 
@@ -83,6 +83,8 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          console.log("Error es")
+
         });
     },
     handleFileChange(evt) {

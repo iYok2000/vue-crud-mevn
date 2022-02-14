@@ -25,8 +25,7 @@
         <h1 class="hed3">ตารางพลังงานจากอาหาร <br> Calrories Table</h1>
     </div>
   </div>
-  <h1 align="center"> พลังงานในไข่ </h1>
- 
+  <h1 align="center"> พลังงานในอาหารประเภทนม </h1>
 <div style="overflow-x:auto;">
    <div class="position">
     <button class="button" @click="clicktoback">Back</button>
@@ -39,77 +38,121 @@
       
     </tr>
     <tr>
-      <td>ไข่ไก่</td>
+      <td>นมข้นจืด, คืนรูป, แปลงไขมัน สูตรน้ำมันปาล์ม</td>
       <td>100 g</td>
-      <td>160</td>
+      <td>114</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองเล็ก</td>
-     <td>60</td>
+      <td>นมข้นจืด, คืนรูป, แปลงไขมัน สูตรมันเนย</td>
+      <td>100 g</td>
+     <td>105</td>
     </tr>
     <tr>
-      <td>ไข่ไก่, ทั้งฟอง</td>
-      <td>1 ฟองใหญ่</td>
-      <td>80</td>
+      <td>นมข้นหวาน, คืนรูป, แปลงไขมัน สูตรน้ำมันปาล์ม</td>
+       <td>100 g</td>
+      <td>324</td>
       
     </tr>
     <tr>
-      <td>ไข่เป็ด</td>
-      <td>100 g </td>
-      <td>186</td>
+      <td>นมข้นหวาน, คืนรูป, แปลงไขมัน สูตรน้ำมันปาล์ม ผสมมันเนย</td>
+       <td>100 g</td>
+      <td>331</td>
     </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 100 g</td>
-      <td>171</td>
+     <tr>
+      <td>นมข้นหวาน, คืนรูป, แปลงไขมัน สูตรมันเนย</td>
+       <td>100 g</td>
+      <td>337</td>
     </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองเล็ก</td>
-      <td>73</td>
+     <tr>
+      <td>นมเปรี้ยว, ยาคูลท์</td>
+       <td>100 g</td>
+      <td>54</td>
     </tr>
-    <tr>
-      <td>ไข่เป็ด, ทั้งฟอง</td>
-      <td> 1 ฟองใหญ่</td>
-      <td> 88</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, พาสเจอร์ไรส์ สูตรนมสด, ตราบีทาเกน</td>
+       <td>100 g</td>
+      <td>72</td>
     </tr>
-    <tr>
-      <td>ไข่นกกระทา</td>
-      <td>100 g</td>
-      <td>  171</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, พาสเจอร์ไรส์ สูตรนมสด, รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>72</td>
     </tr>
-    <tr>
-      <td>ไข่นกกระทา, ทั้งฟอง</td>
-      <td>1 ฟอง</td>
-      <td> 15</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, พาสเจอร์ไรส์ สูตรโยเกิร์ต 35 %, รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>66</td>
     </tr>
-    <tr>
-      <td>ไข่ปลากระบอก, เค็ม</td>
-      <td>100 g</td>
-      <td> 480</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, พาสเจอร์ไรส์ สูตรโยเกิร์ต 76.5 %, รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>71</td>
     </tr>
-    <tr>
-      <td> ไข่จระเข้, ไข่ขาว</td>
-      <td>100 g</td>
-      <td> 15</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, ไขมันต่ำ, ยูเอชที, รสนม</td>
+       <td>100 g</td>
+      <td>54</td>
     </tr>
-    <tr>
-      <td>ไข่จระเข้, ไข่แดง</td>
-      <td>100 g</td>
-      <td>228</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, ไขมันต่ำ, ยูเอชที, รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>53</td>
     </tr>
-    <tr>
-      <td>ไข่จระเข้, ไข่ทั้งฟอง</td>
-      <td>100 g</td>
-      <td>128</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, ยูเอชที, สูตรนมสด 85 %, รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>64</td>
     </tr>
-    <tr>
-      <td>ไข่มดแดงและตัวอ่อน</td>
-      <td>100 g</td>
-      <td>74</td>
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, ยูเอชที, สูตรนมสด 50 %,รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>70</td>
     </tr>
-   
+     <tr>
+      <td>นมเปรี้ยวพร้อมดื่ม, ยูเอชที, สูตรนมสด ผสมนมผง, รสผลไม้รวม</td>
+       <td>100 g</td>
+      <td>62</td>
+    </tr>
+     <tr>
+      <td>นมผงธรรมดา</td>
+       <td>100 g</td>
+      <td>499</td>
+    </tr>
+     <tr>
+      <td>นมผงขาดมันเนย</td>
+       <td>100 g</td>
+      <td>358</td>
+    </tr>
+     <tr>
+      <td>นมสด, พาสเจอร์ไรส์</td>
+       <td>100 g</td>
+      <td>58</td>
+    </tr>
+     <tr>
+      <td>นมสด, พาสเจอร์ไรส์, รสหวาน</td>
+       <td>100 g</td>
+      <td>79</td>
+    </tr>
+     <tr>
+      <td>นมสดพร่องมันเนย, พาสเจอร์ไรส์</td>
+       <td>100 g</td>
+      <td>44</td>
+    </tr>
+     <tr>
+      <td>นมสด, ยูเอชที</td>
+       <td>100 g</td>
+      <td>65</td>
+    </tr>
+     <tr>
+      <td>นมสด, ยูเอชที, รสหวาน</td>
+       <td>100 g</td>
+      <td>69</td>
+    </tr>
+     <tr>
+      <td>นมสด, พร่องมันเนย, ยูเอชที</td>
+       <td>100 g</td>
+      <td>42</td>
+    </tr>
   </table>
 </div>
   <div class="grid-container">
@@ -165,7 +208,7 @@
           />
         </div>
         <div class="item-content">
-           <router-link to="/food"> พลังงานในวัตถุดิบประเภทข้าว </router-link>&nbsp;
+           <router-link to="/food"> พลังงานในอาหารจานเดียวประเภทข้าว </router-link>&nbsp;
         </div>
     </div>
     <div class="item col-20-100 col">
@@ -181,7 +224,7 @@
           <div class="clear"></div>
       </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+        <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-666.png"
             alt="พลังงานอาหารประเภทนม"
@@ -192,7 +235,7 @@
         </div>
     </div>
     <div class="item col-20-100 col">
-      <div class="item-img">
+     <div class="item-img">
           <img
             src="https://www.lovefitt.com/system/wp-content/themes/lovefitt/img/calories-table/icon-667.png"
             alt="พลังงานของถั่วและงา"
