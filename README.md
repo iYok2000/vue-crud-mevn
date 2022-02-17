@@ -25,6 +25,8 @@ $ npm install cors
 ลงตัว multer 
 
 $ npm install --save multer
+
+npm install express body-parser mongoose cors --save
 *****************
 
 เข้าลิงค์นี้ไปโหลด type of deployment
