@@ -12,7 +12,7 @@ let taskSchema = new Schema({
         type: String
     },
     images: {
-        type: Buffer, required: true
+        type: String, require
     }
 }, {
     collection: 'blog'

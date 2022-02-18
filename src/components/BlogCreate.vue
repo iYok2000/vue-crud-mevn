@@ -34,13 +34,26 @@
             required
           />
         </div>
-
+        <div class="FieldField__wrapper">
+          <img
+            v-bind:src="blog.images"
+            class="preview-image"
+            @click="openUpload"
+          />
+        </div>
         <div class="col">
-              <form method="post" action="/upload" enctype="multipart/form-data">
-                  <label for="firstname">Upload</label>
-                  <input type="file" id="images" class="form-control" name="fileupload" @change="handleFileChange" required>
-              </form>
-            </div>
+          <form method="post" action="/upload" enctype="multipart/form-data">
+            <label for="firstname">Upload</label>
+            <input
+              type="file"
+              id="images"
+              class="form-control"
+              name="images"
+              @change="handleFileChange"
+              required
+            />
+          </form>
+        </div>
 
         <div class="form-group">
           <br />
@@ -77,19 +90,27 @@ export default {
             title: "",
             subject: "",
             author: "",
-        
+            images: "",
           };
-          console.log('success')
+          console.log("success");
+          console.log(this.images);
         })
         .catch((error) => {
           console.log(error);
-          console.log("Error es")
-
+          console.log("Error es");
         });
     },
-    handleFileChange(evt) {
-    this.images = evt.target.files[0]
-  }
+    handleFileChange() {
+      const file = document.querySelector('input[type=file]').files[0]
+      const reader = new FileReader()
+
+      reader.onloadend = () => {
+        this.blog.images = reader.result;
+        console.log(this.blog.images);
+      }
+      reader.readAsDataURL(file);
+      console.log(file)
+      },
     
   },
 };
@@ -103,5 +124,9 @@ export default {
   border: 1px solid rgb(214, 213, 230);
   background: #d1ccc0;
   margin-top: 10px;
+}
+.preview-image {
+  width: 400px;
+  height: 400px;
 }
 </style>

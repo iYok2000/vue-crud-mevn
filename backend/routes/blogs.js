@@ -4,6 +4,7 @@ const multer = require('multer');
 //task model
 let BlogModel = require('../models/blog');
 
+
 //define storage for the images
 
 const storage = multer.diskStorage({
@@ -21,9 +22,6 @@ const storage = multer.diskStorage({
   //upload parameters for multer
   const upload = multer({
     storage: storage,
-    limits: {
-      fieldSize: 1024 * 1024 * 3,
-    },
   });
 
 
