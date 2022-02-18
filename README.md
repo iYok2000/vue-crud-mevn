@@ -8,6 +8,8 @@ npm install
 
 npm run serve
 
+npm install base64-img --save
+
 ** ติดตั้งตัว MongoDB เป็น Database **
 ****************
 เรียกใช้ Database 
