@@ -39,7 +39,7 @@ app.use('/apiuser',userAPI);
 // CREATE PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
-    console.log('Connected to port ' + port)
+    console.log('Connected to port ' + port + server)
 })
 
 // 404 Handler

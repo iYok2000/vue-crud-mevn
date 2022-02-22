@@ -18,7 +18,7 @@ let taskSchema = new Schema({
         type: String
     },
     token: {
-        token: String
+        type: String
     }
     }, {
     collection: 'user'

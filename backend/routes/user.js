@@ -1,67 +1,107 @@
 const express = require('express');
 const taskRoute = express.Router();
 const bcrypt = require("bcryptjs");
-const Joi = require("@hapi/joi");
-//const jwt = require("jsonwebtoken");
+//const Joi = require("@hapi/joi");
+const jwt = require("jsonwebtoken");
+var Schema = require("mongoose").Schema;
+const mongoose = require("mongoose");
+dotenv.config();
 
-const registerSchema = Joi.object({
-    first_name: Joi.string().min(6).required(),
-    email: Joi.string().min(6).required().email(),
-    last_name: Joi.string().min(6).required(),
-    password: Joi.string().min(6).required(),
-  });
-  
-  const loginSchema = Joi.object({
-    email: Joi.string().min(6).required().email(),
-    password: Joi.string().min(6).required(),
-  });
 
 let User = require('../models/user');
 
-taskRoute.post("/register", async (req, res) => {
-    const { error } = registerSchema.validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-  
-    //Check if the user is allready in the db
-    const emailExists = await User.findOne({ email: req.body.email });
-  
-    if (emailExists) return res.status(400).send("Email allready exists");
-  
-    //hash passwords
-    const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(req.body.password, salt);
-  
-    //create new user
-    const user =  await new User({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      password: hashPassword,
-    });
-  
-    try {
-      const savedUser = await user.save();
-      res.send(savedUser);
-    } catch (err) {
-      res.status(400).send(err);
-    }
-  });
 
-  taskRoute.post("/login", async (req, res) => {
-    const { error } = loginSchema.validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-  
-    const user = await User.findOne({ email: req.body.email });
-  
-    if (!user) return res.status(400).send("Email or password is wrong");
-  
-    const validPass = await bcrypt.compare(req.body.password, user.password);
-    if (!validPass) return res.status(400).send("Email or password is wrong");
-  
-    //Create and assign a token
-    const token = jwt.sign({ user_id: user._id }, process.env.TOKEN_SECRET, { expiresIn: "2h"});
-    res.header("auth-token", token).send(token);
-  });
+// Register api route
+taskRoute.post("/register", async (req, res) => {
+  // our register logic gose here
+
+  try {
+
+    //get user input
+    const {first_name , last_name, email, password } = req.body;
+
+    //validate user input
+    if(!(email && password && first_name && last_name )) {
+      res.status(400).send("All input is required");
+    }
+
+    // check if user already exist
+    //Validate if user exist in our database
+    const oldUser = await User.findOne({ email });
+
+    if (oldUser) {
+      return res.status(409).send("User already exist. PLease login");
+    }
+
+    //Encrypt user password
+    encryptedPassword = await bcrypt.hash(password, 10);
+
+    
+    // Create user in our database
+    const user = await User.create({
+      first_name,
+      last_name,
+      email: email.toLowerCase(),
+      password: encryptedPassword,
+      
+    })
+    //Create token
+    const token = jwt.sign(
+      { user_id: user._id, email },
+      process.env.TOKEN_KEY,{
+        expiresIn: "2h"
+      }
+      
+    )
+    
+    // Save user token
+    user.token = token;
+    console.log(user.token);
+    //retuen new user
+    res.status(201).json(user);
+  } catch (err) {
+    console.log(err);
+  }
+})
+// email: req.body.email
+
+
+//login api
+taskRoute.post("/login",  async(req, res) => {
+  // our register logic gose here 
+
+  try {
+
+    //get user
+    const { email, password } = req.body;
+    //validate user
+    if( !(email && password)) {
+      res.status(400).send("all input is required");
+    }
+
+    const user = await User.findOne({ email });
+    if ( user && ( await bcrypt.compare(password, user.password))){
+      const token = jwt.sign(
+        { user_id: user._id, email},
+        process.env.TOKEN_KEY,
+        {
+          expiresIn: "1h"
+        }
+      )
+      user.token = token;
+      res.status(200).json(user);
+    }
+    console.log(await User.findOne({email}))
+    res.status(400).send("Invalid Credentials")
+    
+
+   
+  } catch(err) {
+    console.log(err);
+  }
+})
+
+
 
 module.exports = taskRoute;
 
