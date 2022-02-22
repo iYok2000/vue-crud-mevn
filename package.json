@@ -24,6 +24,7 @@
     "semantic-ui-css": "^2.4.1",
     "sequelize": "^6.15.1",
     "vue": "^3.0.0",
+    "vue-a11y-dialog": "^1.1.1",
     "vue-router": "^4.0.0-0",
     "vue-sidebar-menu": "^4.8.1",
     "vuex": "^4.0.0-0"

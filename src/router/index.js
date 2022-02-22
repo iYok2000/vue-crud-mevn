@@ -6,6 +6,7 @@ import EditComponent from '../components/EditComponent.vue'
 import BlogCreate from '../components/BlogCreate.vue'
 import BlogEdit from '../components/BlogEdit.vue'
 import BlogList from '../components/ฺBlogList.vue'
+import loginPage from '../components/loginPage.vue'
 
 const routes = [
   {
@@ -51,9 +52,19 @@ const routes = [
     component: ListComponent
   },
   {
+    path: '/loginpage',
+    name: 'Login',
+    component: loginPage
+  },
+  {
     path: '/edit/:id',
     name: 'edit',
     component: EditComponent
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import(/* webpackChunkName: "test" */ '../views/test.vue')
   },
   {
     path: '/news',
