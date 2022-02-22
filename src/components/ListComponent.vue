@@ -79,4 +79,6 @@ export default {
   background: #d1ccc0;
   margin-top: 10px ;
 }
+
+
 </style>

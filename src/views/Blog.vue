@@ -6,7 +6,7 @@
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
       <body>
         <div class="w3-container">
-          <h1 class="w3-xxxlarge w3-animate-bottom">ข่าวสาร สุขภาพ</h1>
+          <h1 class="w3-xxxlarge w3-animate-bottom">บทความเกี่ยวกับการออกกำลังกาย</h1>
         </div>
         <div class="ui">
           <br />
@@ -22,8 +22,8 @@
           </div>
         </div>
 
-        <div class="w3-content" v-for="blog in Blogs" :key="blog._id">
-          <div class="w3-row w3-margin">
+        <div class="w3-content"  v-for="blog in Blogs" :key="blog._id">
+          <div class="w3-row w3-margin" >
             <div class="w3-third"  >
                <img class="inside" v-bind:src = "blog.images"></div>
             <div class="w3-twothird">

@@ -135,6 +135,16 @@ const routes = [
     name: 'BEEN',
     component: () => import(/* webpackChunkName: "CALRORIESTABLE" */ '../views/Tablecalrories/been.vue')
   },
+  {
+    path: '/mainrecipe',
+    name: 'Mainrecipe',
+    component: () => import(/* webpackChunkName: "Mainrecipe" */ '../views/Mainrecipe.vue')
+  },
+  {
+    path: '/recipe/:slug',
+    name: 'Recipe',
+    component: () => import(/* webpackChunkName: "recipe" */ '../views/Recipe.vue')
+  },
 ]
 
 const router = createRouter({

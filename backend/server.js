@@ -3,7 +3,10 @@ let express = require('express'),
     mongoose = require('mongoose'),
     database = require('./database'),
     bodyParser = require('body-parser')
-    
+    dotenv = require("dotenv");
+
+
+    dotenv.config();
 
 // Connect MongoDB
 mongoose.Promise = global.Promise;
@@ -19,8 +22,11 @@ mongoose.connect(database.db, {
 const createError = require('http-errors');
 const taskAPI = require('./routes/task.route');
 const blogAPI = require('./routes/blogs');
+const userAPI = require('./routes/user');
 const app = express();
 app.use(bodyParser.json());
+
+app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }))
@@ -29,6 +35,7 @@ app.use(cors());
 // API
 app.use('/api', taskAPI);
 app.use('/apiblog',blogAPI);
+app.use('/apiuser',userAPI);
 // CREATE PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
