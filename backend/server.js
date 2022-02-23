@@ -7,7 +7,7 @@ let express = require('express'),
 
 
     dotenv.config();
-
+    require("dotenv").config();
 // Connect MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(database.db, {
@@ -19,13 +19,15 @@ mongoose.connect(database.db, {
     console.log('Cannot connect to database ' + error)
 })
 
+
 const createError = require('http-errors');
 const taskAPI = require('./routes/task.route');
 const blogAPI = require('./routes/blogs');
 const userAPI = require('./routes/user');
 const app = express();
-app.use(bodyParser.json());
 
+app.use(bodyParser.json());
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: false

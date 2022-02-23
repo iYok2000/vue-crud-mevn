@@ -1,46 +1,73 @@
 <template>
   <!-- navbar -->
- <head>
-      <meta charset="UTF-8" />
-      <title>Headers - 7</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="styles/reset.min.css" />
-      <link rel="stylesheet" href="styles/style.css" />
-      <link rel="stylesheet" href="styles/header-7.css" />
-    </head>
-    <body>
-      <!-- Header Start -->
-      <header class="site-header">
-        <div class="wrapper site-header__wrapper">
-          <div class="site-header__start">
-            <a href="#" class="brand">Brand</a>
-          </div>
-          <div class="site-header__middle">
-            <nav class="nav">
-              <button class="nav__toggle" aria-expanded="false" type="button">
-                menu
-              </button>
-              <ul class="nav__wrapper">
-                <li class="nav__item"> <router-link to="/">หน้าแรก</router-link></li>&nbsp;
-                <li class="nav__item"> <router-link to="/blog">ข่าวสาร</router-link> &nbsp;</li>&nbsp;
-                <li class="nav__item"><router-link to="/Mainrecipe">สูตรอาหารคลีน</router-link></li>&nbsp;
-                <li class="nav__item"><router-link to="/calroriestable">ตารางพลังงานในอาหาร</router-link></li>&nbsp;
-                <li class="nav__item"><router-link to="/news">ความรู้สุขภาพ</router-link></li>&nbsp;
-                <li class="nav__item"><router-link to="/calculate"> สูตรคำนวณร่างกาย </router-link></li>&nbsp;
-                <li class="nav__item"><router-link to="/about">ติดต่อเรา</router-link></li>&nbsp;
-              </ul>
-            </nav>
-          </div>
-          <div class="site-header__end">
-            <button type="button" @click="toLoginpage" >เข้าสู่ระบบ</button>
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Headers - 7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/reset.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/header-7.css" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <header class="site-header">
+      <div class="wrapper site-header__wrapper">
+        <div class="site-header__start">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="/" class="brand">HEALTHY WEB</a>
         </div>
-      </header>
-      <!-- Header End -->
-    </body>
-     <div class="flex-end">
-        <button type="button" @click="openMainDialog" >Manage</button>
+        <div class="site-header__middle">
+          <nav class="nav">
+            <button class="nav__toggle" aria-expanded="false" type="button">
+              menu
+            </button>
+            <ul class="nav__wrapper">
+              <li class="nav__item">
+                <router-link to="/">หน้าแรก</router-link>
+              </li>
+              &nbsp;
+              <li class="nav__item">
+                <router-link to="/blog">ข่าวสาร</router-link> &nbsp;
+              </li>
+              &nbsp;
+              <li class="nav__item">
+                <router-link to="/Mainrecipe">สูตรอาหารคลีน</router-link>
+              </li>
+              &nbsp;
+              <li class="nav__item">
+                <router-link to="/calroriestable"
+                  >ตารางพลังงานในอาหาร</router-link
+                >
+              </li>
+              &nbsp;
+              <li class="nav__item">
+                <router-link to="/news">ความรู้สุขภาพ</router-link>
+              </li>
+              &nbsp;
+              <li class="nav__item">
+                <router-link to="/calculate"> สูตรคำนวณร่างกาย </router-link>
+              </li>
+              &nbsp;
+              <li class="nav__item">
+                <router-link to="/about">ติดต่อเรา</router-link>
+              </li>
+              &nbsp;
+            </ul>
+          </nav>
+        </div>
+        <div v-if="!isLoggedIn">
+          <button @click="toLoginpage">logout</button>
+        </div>
+        <div v-else class="site-header__end">
+          <button type="button" v-if="!isLoggedIn" @click="toLoginpage"> เข้าสู่ระบบ </button>
+        </div>
       </div>
+    </header>
+    <!-- Header End -->
+  </body>
+  <div class="flex-end">
+    <button type="button" @click="openMainDialog">Manage</button>
+  </div>
   <popup />
   <a11y-dialog id="main-dialog" @dialog-ref="assignDialogReference">
     <main class="site-wrapper">
@@ -161,7 +188,6 @@
                           fill="#1e2530"
                         ></path>
                       </svg>
-                      
                     </a>
                   </div>
                   <div class="hexagon-item">
@@ -307,6 +333,7 @@
 
 <script>
 import Popup from "./components/Popup.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "App",
@@ -323,12 +350,11 @@ export default {
     assignDialogReference(dialog) {
       this.dialog = dialog;
     },
-    tocaloriestable(){
-     this.$router.push("/calroriestable");
+    tocaloriestable() {
+      this.$router.push("/calroriestable");
     },
-    toLoginpage(){
-       this.$router.push("/loginpage");
-
+    toLoginpage() {
+      this.$router.push("/loginpage");
     },
     openMainDialog() {
       if (this.dialog) {
@@ -336,11 +362,13 @@ export default {
       }
     },
   },
+  computed: {
+    ...mapGetters(["isLoggedIn"]),
+  },
 };
 </script>
 
 <style>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -367,29 +395,39 @@ export default {
 */
 .brand {
   font-weight: bold;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .site-header {
   position: relative;
-  background-color: rgb(64, 151, 170) }
+  background-color: rgb(64, 151, 170);
+}
 
 .site-header__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  padding-bottom: 1rem; }
-  @media (min-width: 660px) {
-    .site-header__wrapper {
-      padding-top: 0;
-      padding-bottom: 0; } }
+  padding-bottom: 1rem;
+}
+@media (min-width: 660px) {
+  .site-header__wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
 @media (max-width: 659px) {
   .site-header__end {
-    padding-right: 4rem; } }
+    padding-right: 4rem;
+  }
+}
 
 @media (min-width: 660px) {
   .nav__wrapper {
-    display: flex;  list-style-type: none;} }
+    display: flex;
+    list-style-type: none;
+  }
+}
 
 @media (max-width: 659px) {
   .nav__wrapper {
@@ -402,22 +440,25 @@ export default {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-100%);
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out; }
-    .nav__wrapper.active {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0); } }
-    
-.nav__item a {
-    font-weight: bold;
-    font-size: 18px;
-  display: block;
-  padding: 1.5rem 2rem; 
-  margin-top: 50px;
- color: #0e0e0e;
- border-radius: 20px;
-  background-color: rgb(149, 180, 221);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   }
+  .nav__wrapper.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav__item a {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  padding: 1.5rem 2rem;
+  margin-top: 50px;
+  color: #0e0e0e;
+  border-radius: 20px;
+  background-color: rgb(149, 180, 221);
+}
 a.router-link-exact-active {
   color: #e5f5ee;
 }
@@ -430,32 +471,35 @@ a.router-link-exact-active {
   --background-color: white;
   --overlay-color: rgba(43, 46, 56, 0.9);
 }
- .flex-end {
-        background-color: rgb(20, 20, 20);
-        padding: 10px 0;
-        display: flex;
-        justify-content: flex-end;
-      }
+.flex-end {
+  background-color: rgb(20, 20, 20);
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}
 
 .nav__toggle {
-  display: none; }
-  @media (max-width: 659px) {
-    .nav__toggle {
-      display: block;
-      position: absolute;
-      right: 1rem;
-      top: 1rem; } }
+  display: none;
+}
+@media (max-width: 659px) {
+  .nav__toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+}
 :root {
   --text-color: #2c3e50;
   --background-color: white;
   --overlay-color: rgba(43, 46, 56, 0.9);
 }
- .flex-end {
-        background-color: rgb(20, 20, 20);
-        padding: 10px 0;
-        display: flex;
-        justify-content: flex-end;
-      }
+.flex-end {
+  background-color: rgb(20, 20, 20);
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+}
 
 button {
   border: none;
@@ -464,7 +508,7 @@ button {
   padding: 10px 15px;
   color: white;
   cursor: pointer;
- float: right;
+  float: right;
 }
 /** ⚠️ a11y-dialog related **/
 .dialog-container {
@@ -494,12 +538,12 @@ button {
 .dialog-content {
   background-color: var(--background-color);
   margin-left: 300px;
-   margin-top: 50px;
+  margin-top: 50px;
   height: -webkit-calc(5vh - 2px);
   height: -moz-calc(5vh - 2px);
   height: calc(5vh - 2px);
   z-index: 2;
-  position: inherit ;
+  position: inherit;
   width: 70%;
   padding: 1em;
 }
@@ -533,7 +577,6 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-
   background-color: #f5f5f5;
 }
 

@@ -18,7 +18,7 @@ taskRoute.post("/register", async (req, res) => {
   try {
 
     //get user input
-    const {first_name , last_name, email, password } = req.body;
+    const {first_name , last_name, email, password, role } = req.body;
 
     //validate user input
     if(!(email && password && first_name && last_name )) {
@@ -43,7 +43,7 @@ taskRoute.post("/register", async (req, res) => {
       last_name,
       email: email.toLowerCase(),
       password: encryptedPassword,
-      
+      role,
     })
     //Create token
     const token = jwt.sign(
@@ -74,6 +74,7 @@ taskRoute.post("/login",  async(req, res) => {
 
     //get user
     const { email, password } = req.body;
+    console.log(res.body);
     //validate user
     if( !(email && password)) {
       res.status(400).send("all input is required");
@@ -88,10 +89,19 @@ taskRoute.post("/login",  async(req, res) => {
           expiresIn: "1h"
         }
       )
+      
       user.token = token;
       res.status(200).json(user);
-    }
-    console.log(await User.findOne({email}))
+      
+      // test localstoreage
+      /*if(res.status === 200 && res.data.length>0 ){
+        localStorage.setItem("user", JSON.stringify(res.data[0]))
+        this.$router.push("/");
+      }
+    */
+
+      }
+    console.log(await User.findOne({ email }))
     res.status(400).send("Invalid Credentials")
     
 

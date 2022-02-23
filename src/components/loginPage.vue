@@ -6,15 +6,16 @@
     <div class="container" id="container">
       <!-- sign in page -->
       <div class="form-container sign-in-container">
-        <form method="POST" action="#" class="form" id="login">
-          <h1 class="form__title">Login</h1>
+        <form @submit.prevent="submit">
+          <h1 class="form__title">login</h1>
           <div class="form__input-group">
-            <label for="username">Username: </label>
+            <label for="username">Email: </label>
             <input
-              type="text"
+              v-model="state.form.loginId"
+              type="email"
               class="form__input"
-              name="username"
-              id="username"
+              name="email"
+              id="loginId"
               maxlength="20"
               required
             />
@@ -22,10 +23,11 @@
           <div class="form__input-group">
             <label for="pass">Password: </label>
             <input
+              v-model="state.form.loginPw"
               type="password"
               class="form__input"
-              name="pass"
-              id="pass"
+              name="password"
+              id="loginPw"
               maxlength="20"
               required
             />
@@ -38,7 +40,7 @@
 
       <!--  create account page -->
       <div class="form-container sign-up-container">
-        <form method="POST" action="#" class="form" id="register">
+        <form method="POST" class="form" id="register">
           <h1 class="form__title">Register</h1>
           <div class="form__input-group">
             <label for="username"> Username: </label>
@@ -85,22 +87,109 @@
 </template>
 
 <script>
+//import { mapMutations } from "vuex";
+
+import axios from "axios";
+import { reactive } from "vue";
 export default {
   data() {
-    return "";
-  },
+    return {
+      email: "",
+      password: "",
+    };
+  },/*
+  methods: {
+    ...mapMutations(["setUser", "setToken"]),
+    async login(e) {
+      e.preventDefault();
+
+      const response = await fetch("http://localhost:4000/apiuser/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+        }),
+        
+      });
+      
+      const { user, token } = await response.json();
+      console.log(token);
+      console.log("Under here");
+      console.log(response);
+      if (response.status == 200) {
+        localStorage.setItem("user", JSON.stringify(response));
+        console.log("under two");
+        console.log(response);
+        this.$router.push("/");
+      }
+
+      this.setUser(user);
+      this.setToken(token);
+      console.log("success");
+    },
+  },*/
   mounted() {
     const signUpButton = document.getElementById("signUp");
     const signInButton = document.getElementById("signIn");
     const container = document.getElementById("container");
-
     signUpButton.addEventListener("click", () => {
       container.classList.add("right-panel-active");
     });
-
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
+
+    const user = localStorage.getItem("user");
+    if (user) {
+      this.$router.push("/");
+      alert("You already login now.");
+    }
+  },
+
+  
+  setup() {
+    
+    const state = reactive({
+      account: {
+        id: null,
+        email: "",
+      },
+      form: {
+        loginId: "",
+        loginPw: "",
+      },
+    });
+    const submit = () => {
+      const args = {
+        email: state.form.loginId,
+        password: state.form.loginPw,
+      };
+      axios
+        .post("http://localhost:4000/apiuser/login", args)
+        .then((res) => {
+          alert("로그인에 성공했습니다123456.");
+          state.account = res.data;
+          console.log(res);
+         
+          if (res.status == 200) {
+        localStorage.setItem("user", JSON.stringify(res));
+        console.log("under two");
+        console.log(res);
+        
+      }
+          
+        })
+        .catch(() => {
+          alert("로그인에 실패했습니다. 계정 정보를 확인해주세요789.");
+        });
+      
+    };
+    
+    return { state, submit };
   },
 };
 </script>
@@ -109,7 +198,6 @@ export default {
 * {
   box-sizing: border-box;
 }
-
 body {
   background: #f6f5f7;
   display: flex;
@@ -120,12 +208,10 @@ body {
   height: 100vh;
   margin: -20px 0 50px;
 }
-
 h1 {
   font-weight: bold;
   margin: 1rem;
 }
-
 p {
   font-size: 14px;
   font-weight: 100;
@@ -133,7 +219,6 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
-
 button {
   border-radius: 20px;
   border: 1px solid #ff4b2b;
@@ -146,20 +231,16 @@ button {
   text-transform: uppercase;
   transition: transform 80ms ease-in;
 }
-
 button:active {
   transform: scale(0.95);
 }
-
 button:focus {
   outline: none;
 }
-
 button.ghost {
   background-color: transparent;
   border-color: #ffffff;
 }
-
 form {
   background-color: #ffffff;
   display: flex;
@@ -170,7 +251,6 @@ form {
   height: 100%;
   text-align: center;
 }
-
 input {
   background-color: #eee;
   border: none;
@@ -178,7 +258,6 @@ input {
   margin: 8px 0;
   width: 100%;
 }
-
 .container {
   background-color: #fff;
   border-radius: 10px;
@@ -189,38 +268,32 @@ input {
   max-width: 100%;
   min-height: 480px;
 }
-
 .form-container {
   position: absolute;
   top: 0;
   height: 100%;
   transition: all 0.6s ease-in-out;
 }
-
 .sign-in-container {
   left: 0;
   width: 50%;
   z-index: 2;
 }
-
 .container.right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
-
 .sign-up-container {
   left: 0;
   width: 50%;
   opacity: 0;
   z-index: 1;
 }
-
 .container.right-panel-active .sign-up-container {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
   animation: show 0.6s;
 }
-
 .overlay-container {
   position: absolute;
   top: 0;
@@ -231,11 +304,9 @@ input {
   transition: transform 0.6s ease-in-out;
   z-index: 100;
 }
-
 .container.right-panel-active .overlay-container {
   transform: translateX(-100%);
 }
-
 .overlay {
   background: #ff416c;
   background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
@@ -251,11 +322,9 @@ input {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-
 .container.right-panel-active .overlay {
   transform: translateX(50%);
 }
-
 .overlay-panel {
   position: absolute;
   display: flex;
@@ -270,20 +339,16 @@ input {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-
 .overlay-left {
   transform: translateX(-20%);
 }
-
 .container.right-panel-active .overlay-left {
   transform: translateX(0);
 }
-
 .overlay-right {
   right: 0;
   transform: translateX(0);
 }
-
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
 }

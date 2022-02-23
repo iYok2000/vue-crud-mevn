@@ -17,6 +17,9 @@ let taskSchema = new Schema({
     password: {
         type: String
     },
+    role: {
+        type: String
+    },
     token: {
         type: String
     }

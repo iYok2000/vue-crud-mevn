@@ -8,12 +8,15 @@ import BlogEdit from '../components/BlogEdit.vue'
 import BlogList from '../components/ฺBlogList.vue'
 import loginPage from '../components/loginPage.vue'
 
+
 const routes = [
+  
   {
     path: '/',
     name: 'Home',
     component: Home
   },
+
   {
     path: '/about',
     name: 'About',

@@ -364,7 +364,7 @@ tr {
   transform: translateY(4px);
 }
 .position{
-  margin-right: 60%;
+  margin-right: 80%;
 }
 </style>
 
