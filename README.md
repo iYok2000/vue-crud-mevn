@@ -1,6 +1,3 @@
-# ZOOM 
-https://zoom.us/j/97616419643?pwd=MTI1TFpET2tkT0NDeml2RnFNUGNjdz09
-
 # vue-crud-mevn-v1
  
 เริ่มต้นเข้าโปรเจค 
