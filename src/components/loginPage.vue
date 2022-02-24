@@ -94,44 +94,15 @@ import { reactive } from "vue";
 export default {
   data() {
     return {
+      Admin: false,
       email: "",
       password: "",
+
     };
-  },/*
-  methods: {
-    ...mapMutations(["setUser", "setToken"]),
-    async login(e) {
-      e.preventDefault();
+  },
 
-      const response = await fetch("http://localhost:4000/apiuser/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-        },
-        body: JSON.stringify({
-          email: this.email,
-          password: this.password,
-        }),
-        
-      });
-      
-      const { user, token } = await response.json();
-      console.log(token);
-      console.log("Under here");
-      console.log(response);
-      if (response.status == 200) {
-        localStorage.setItem("user", JSON.stringify(response));
-        console.log("under two");
-        console.log(response);
-        this.$router.push("/");
-      }
-
-      this.setUser(user);
-      this.setToken(token);
-      console.log("success");
-    },
-  },*/
+  
+  
   mounted() {
     const signUpButton = document.getElementById("signUp");
     const signInButton = document.getElementById("signIn");
@@ -142,21 +113,21 @@ export default {
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
-
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem("admin");
     if (user) {
       this.$router.push("/");
       alert("You already login now.");
     }
+    
   },
 
-  
+
   setup() {
-    
     const state = reactive({
       account: {
-        id: null,
+        id: false,
         email: "",
+        check:""
       },
       form: {
         loginId: "",
@@ -174,23 +145,26 @@ export default {
           alert("로그인에 성공했습니다123456.");
           state.account = res.data;
           console.log(res);
-         
-          if (res.status == 200) {
-        localStorage.setItem("user", JSON.stringify(res));
-        console.log("under two");
-        console.log(res);
-        
-      }
-          
+
+          if (res.status === "success") {
+            localStorage.setItem("admin", JSON.stringify(res));
+            state.account.check = res.data.role;
+            if(res.data.role === "AA"){
+              this.$router.push('/');
+            }else{ 
+              this.$router.push('/about'); 
+            }
+
+          }
         })
         .catch(() => {
-          alert("로그인에 실패했습니다. 계정 정보를 확인해주세요789.");
+          alert("login Fail.");
         });
-      
     };
     
     return { state, submit };
   },
+  
 };
 </script>
 

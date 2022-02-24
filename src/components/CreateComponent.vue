@@ -18,12 +18,11 @@
                     <br><label for="name">ผู้เขียน</label>
                     <br><input type="text" class="form-control" v-model="task.aka" required>
                 </div>
-                
-
                 <div class="form-group"><br>
                     <button class="btn btn-success btn-block"> Create</button>
                 </div>
             </form>
+            
         </div>
        
     </div>
@@ -32,6 +31,7 @@
 <script>
 import axios from 'axios';
 
+
 export default {
     data () {
         return {
@@ -39,7 +39,8 @@ export default {
                 title:'',
                 subject:'',
                 aka:''
-            }
+            },
+            
         }
     },
     methods: {
@@ -57,7 +58,16 @@ export default {
                 console.log(error)
             })
             }
-    }
+    },
+   
+//    computed: {
+//   user() {
+//    return localStorage.getItem('admin');
+//   }
+// },
+//const user = localStorage.getItem("user");
+
+
 }
 </script>
 

@@ -55,19 +55,23 @@
             </ul>
           </nav>
         </div>
-        <div v-if="!isLoggedIn">
-          <button @click="toLoginpage">logout</button>
+        <div v-show ="isLoggedIn" class="site-header__end">
+          <button type="button" @click="toLoginpage">
+            เข้าสู่ระบบ
+          </button>
         </div>
-        <div v-else class="site-header__end">
-          <button type="button" v-if="!isLoggedIn" @click="toLoginpage"> เข้าสู่ระบบ </button>
+         <div v-show="!isLoggedIn">
+          <button @click="toLoginpage">logout</button>
         </div>
       </div>
     </header>
     <!-- Header End -->
   </body>
-  <div class="flex-end">
-    <button type="button" @click="openMainDialog">Manage</button>
-  </div>
+
+  <button type="button" v-show="state.account.id" @click="openMainDialog">
+    Manage
+  </button>
+
   <popup />
   <a11y-dialog id="main-dialog" @dialog-ref="assignDialogReference">
     <main class="site-wrapper">
@@ -108,9 +112,13 @@
                     <a class="hex-content">
                       <span class="hex-content-inner">
                         <span class="icon">
-                          <i class="fa fa-universal-access"></i>
+                          <i class="tasks icon"></i>
                         </span>
-                        <span class="title">Welcome</span>
+                        <span class="title">
+                         <router-link to="/blogList" exact class="item">
+                            ลบ / แก้ไข blog
+                          </router-link></span
+                        >
                       </span>
                       <svg
                         viewBox="0 0 173.20508075688772 200"
@@ -142,39 +150,7 @@
                         <span class="icon">
                           <i class="fa fa-bullseye"></i>
                         </span>
-                        <span class="title">SignIn & Register</span>
-                      </span>
-                      <svg
-                        viewBox="0 0 173.20508075688772 200"
-                        height="200"
-                        width="174"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
-                          fill="#1e2530"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="hexagon-item" @click="tocaloriestable">
-                    <div class="hex-item">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <div class="hex-item">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <a class="hex-content">
-                      <span class="hex-content-inner">
-                        <span class="icon">
-                          <i class="fa fa-braille"></i>
-                        </span>
-                        <span class="title">Services</span>
+                        <span class="title"> SignIn & Register</span>
                       </span>
                       <svg
                         viewBox="0 0 173.20508075688772 200"
@@ -204,9 +180,47 @@
                     <a class="hex-content">
                       <span class="hex-content-inner">
                         <span class="icon">
-                          <i class="fa fa-id-badge"></i>
+                          <i class="plus circle icon"></i>
                         </span>
-                        <span class="title">Resume</span>
+                        <span class="title">
+                          <router-link to="/createComponent" exact class="item">
+                            สร้างบทความ
+                          </router-link>
+                        </span>
+                      </span>
+                      <svg
+                        viewBox="0 0 173.20508075688772 200"
+                        height="200"
+                        width="174"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon"> </span>
+                        <span class="title">
+                          <router-link to="/view" exact class="item">
+                            <i class="tasks icon"></i> ลบ / แก้ไข บทความ
+                          </router-link></span
+                        >
                       </span>
                       <svg
                         viewBox="0 0 173.20508075688772 200"
@@ -236,9 +250,13 @@
                     <a class="hex-content">
                       <span class="hex-content-inner">
                         <span class="icon">
-                          <i class="fa fa-life-ring"></i>
+                          <i class="plus circle icon"></i>
                         </span>
-                        <span class="title">Works</span>
+                        <span class="title">
+                          <router-link to="/blogCreate" exact class="item">
+                            สร้าง Blog
+                          </router-link></span
+                        >
                       </span>
                       <svg
                         viewBox="0 0 173.20508075688772 200"
@@ -254,70 +272,8 @@
                       </svg>
                     </a>
                   </div>
-                  <div class="hexagon-item">
-                    <div class="hex-item">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <div class="hex-item">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <a class="hex-content">
-                      <span class="hex-content-inner">
-                        <span class="icon">
-                          <i class="fa fa-clipboard"></i>
-                        </span>
-                        <span class="title">Testimonials</span>
-                      </span>
-                      <svg
-                        viewBox="0 0 173.20508075688772 200"
-                        height="200"
-                        width="174"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
-                          fill="#1e2530"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="hexagon-item">
-                    <div class="hex-item">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <div class="hex-item">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <a class="hex-content">
-                      <span class="hex-content-inner">
-                        <span class="icon">
-                          <i class="fa fa-map-signs"></i>
-                        </span>
-                        <span class="title">Contact</span>
-                      </span>
-                      <svg
-                        viewBox="0 0 173.20508075688772 200"
-                        height="200"
-                        width="174"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
-                          fill="#1e2530"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
+                  
+                  
                 </div>
               </div>
             </div>
@@ -334,6 +290,8 @@
 <script>
 import Popup from "./components/Popup.vue";
 import { mapGetters } from "vuex";
+import axios from "axios";
+import { reactive } from "@vue/reactivity";
 
 export default {
   name: "App",
@@ -356,19 +314,57 @@ export default {
     toLoginpage() {
       this.$router.push("/loginpage");
     },
+    toCreatecomponent() {
+      this.$router.push("/createComponent");
+    },
     openMainDialog() {
       if (this.dialog) {
         this.dialog.show();
       }
     },
+    
   },
+ 
   computed: {
     ...mapGetters(["isLoggedIn"]),
+  },
+  setup() {
+    const state = reactive({
+      account: {
+        id: null,
+        email: "",
+        check:""
+      },
+      form: {
+        loginId: "",
+        loginPw: "",
+      },
+    });
+    axios
+      .get("http://localhost:4000/apiuser")
+      .then((res) => {
+        alert("로그인에 성공했습니다123456.");
+        state.account = res.data;
+        console.log(res.data);
+        
+        if (res) {
+          localStorage.setItem("user", JSON.stringify(res));
+          console.log("under twooo");
+          //state.account.id = 1;
+          console.log(state.account.check);
+          console.log(res.data[2].role);
+        } 
+      })
+      .catch(() => {
+        alert("로그인에 실패했습니다. 계정 정보를 확인해주세요789.");
+      });
+   
+    return { state };
   },
 };
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

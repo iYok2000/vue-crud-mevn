@@ -11,6 +11,18 @@ dotenv.config();
 let User = require('../models/user');
 
 
+//GET SOME ID
+//get Data
+taskRoute.route('/').get((_req, res, next) => {
+  User.find((error, data) => {
+      if (error) {
+          return next(error);
+      }else {
+          res.json(data);
+      }
+  })
+})
+
 // Register api route
 taskRoute.post("/register", async (req, res) => {
   // our register logic gose here
@@ -65,6 +77,29 @@ taskRoute.post("/register", async (req, res) => {
 })
 // email: req.body.email
 
+//get some
+// taskRoute.get("/login",  async(req, res) => {
+//   // our register logic gose here 
+//   try {
+//     //get user
+//     const { email, password } = req.body;
+//     console.log(res.body);
+//     //validate user
+//     if( !(email && password)) {
+//       res.status(400).send("all input is required");
+//     }
+
+//     const user = await User.findOne({ email });
+//     if ( user && ( await bcrypt.compare(password, user.password))){
+    
+//       }
+//     console.log(await User.findOne({ email }))
+//     res.status(400).send("Invalid Credentials")
+    
+//   } catch(err) {
+//     console.log(err);
+//   }
+// })
 
 //login api
 taskRoute.post("/login",  async(req, res) => {
@@ -92,7 +127,7 @@ taskRoute.post("/login",  async(req, res) => {
       
       user.token = token;
       res.status(200).json(user);
-      
+
       // test localstoreage
       /*if(res.status === 200 && res.data.length>0 ){
         localStorage.setItem("user", JSON.stringify(res.data[0]))

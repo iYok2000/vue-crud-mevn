@@ -76,8 +76,10 @@ export default {
         author: "",
         images: "",
       },
+      Tasks: []
     };
   },
+  
   methods: {
     handleSubmitForm() {
       let apiURL = "http://localhost:4000/apiblog/create-blog";

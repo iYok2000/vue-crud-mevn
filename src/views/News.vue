@@ -8,10 +8,10 @@
         <div class="w3-container">
           <h1 class="w3-xxxlarge w3-animate-bottom">บทความสุขภาพ</h1>
         </div>
-        <div class="ui">
+        <div class="ui" >
           <br />
           <div class="ui center aligned container">
-            <div class="ui pointing menu compact">
+            <div class="ui pointing menu compact" >
               <router-link to="/createComponent" exact class="item">
                 <i class="plus circle icon"></i> สร้างบทความ
               </router-link>
@@ -67,6 +67,7 @@ export default {
         console.log(error);
       });
   },
+  
 };
 </script>
 

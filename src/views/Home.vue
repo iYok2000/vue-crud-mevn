@@ -289,13 +289,13 @@ export default {
       .get(apiURL)
       .then((res) => {
         this.Blogs = res.data;
-        console.log(this.blog);
       })
       .catch((error) => {
         console.log(error);
         console.log(this.blog);
       });
   },
+  
   methods: {
     onclickshow() {
       return (this.showpic = !this.showpic);
