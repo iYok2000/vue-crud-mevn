@@ -55,20 +55,18 @@
             </ul>
           </nav>
         </div>
-        <div v-show ="isLoggedIn" class="site-header__end">
-          <button type="button" @click="toLoginpage">
-            เข้าสู่ระบบ
-          </button>
+        <div v-if="!checklogin" class="site-header__end">
+          <button type="button" @click="toLoginpage">เข้าสู่ระบบ</button>
         </div>
-         <div v-show="!isLoggedIn">
-          <button @click="toLoginpage">logout</button>
+        <div v-else>
+          <button @click="logout">logout</button>
         </div>
       </div>
     </header>
     <!-- Header End -->
   </body>
 
-  <button type="button" v-show="state.account.id" @click="openMainDialog">
+  <button type="button" v-show="checkrole" @click="openMainDialog">
     Manage
   </button>
 
@@ -115,7 +113,7 @@
                           <i class="tasks icon"></i>
                         </span>
                         <span class="title">
-                         <router-link to="/blogList" exact class="item">
+                          <router-link to="/blogList" exact class="item">
                             ลบ / แก้ไข blog
                           </router-link></span
                         >
@@ -272,8 +270,6 @@
                       </svg>
                     </a>
                   </div>
-                  
-                  
                 </div>
               </div>
             </div>
@@ -282,16 +278,38 @@
       </div>
     </main>
   </a11y-dialog>
-  <!-- Router view -->
+  <br /><br />
+
   <router-view></router-view>
 </template>
 
 
 <script>
 import Popup from "./components/Popup.vue";
-import { mapGetters } from "vuex";
 import axios from "axios";
 import { reactive } from "@vue/reactivity";
+
+let email = localStorage.getItem("email");
+let first_name = localStorage.getItem("first_name");
+let last_name = localStorage.getItem("last_name");
+let role = localStorage.getItem("role");
+
+// Check login
+// function checklogin() {
+//   if(email){
+//     return true
+//   }
+// }
+
+// Checkrole
+// function checkrole(){
+
+//       console.log("HEre",role);
+//       console.log("AA".localeCompare(role));
+
+//       return '"AA"'.localeCompare(role) === 0
+
+//     }
 
 export default {
   name: "App",
@@ -302,6 +320,7 @@ export default {
 
   data: () => ({
     dialog: null,
+    showmanage: "",
   }),
 
   methods: {
@@ -322,44 +341,62 @@ export default {
         this.dialog.show();
       }
     },
-    
+    logout() {
+      localStorage.clear();
+      location.reload();
+    },
   },
- 
+
   computed: {
-    ...mapGetters(["isLoggedIn"]),
+    checkrole() {
+      return '"AA"'.localeCompare(role) === 0;
+    },
+    checklogin() {
+        return email? true:false;
+    },
   },
   setup() {
     const state = reactive({
       account: {
         id: null,
         email: "",
-        check:""
+        check: "",
       },
       form: {
         loginId: "",
         loginPw: "",
       },
     });
-    axios
-      .get("http://localhost:4000/apiuser")
-      .then((res) => {
-        alert("로그인에 성공했습니다123456.");
-        state.account = res.data;
-        console.log(res.data);
-        
-        if (res) {
-          localStorage.setItem("user", JSON.stringify(res));
-          console.log("under twooo");
-          //state.account.id = 1;
-          console.log(state.account.check);
-          console.log(res.data[2].role);
-        } 
-      })
-      .catch(() => {
-        alert("로그인에 실패했습니다. 계정 정보를 확인해주세요789.");
-      });
-   
-    return { state };
+
+    const submit = () => {
+      const args = {
+        email: state.form.loginId,
+        password: state.form.loginPw,
+      };
+      axios
+        .post("http://localhost:4000/apiuser/login", args)
+        .then((res) => {
+          alert("로그인에 성공했습니다123456.");
+
+          state.account = res.data;
+          console.log(res);
+          if (res.status == 200) {
+            localStorage.setItem("admin", JSON.stringify(res));
+            console.log("under twooo");
+            console.log("Email", email);
+            console.log("First Name", first_name);
+            console.log("Last Name", last_name);
+            console.log("Role ", role);
+            state.account.check = res.data.role;
+            console.log(state.account.check);
+          }
+        })
+        .catch(() => {
+          alert("login Fail.");
+        });
+    };
+
+    return { state, submit };
   },
 };
 </script>

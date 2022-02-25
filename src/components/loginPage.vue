@@ -97,12 +97,9 @@ export default {
       Admin: false,
       email: "",
       password: "",
-
     };
   },
 
-  
-  
   mounted() {
     const signUpButton = document.getElementById("signUp");
     const signInButton = document.getElementById("signIn");
@@ -118,16 +115,14 @@ export default {
       this.$router.push("/");
       alert("You already login now.");
     }
-    
   },
-
 
   setup() {
     const state = reactive({
       account: {
         id: false,
         email: "",
-        check:""
+        check: "",
       },
       form: {
         loginId: "",
@@ -144,27 +139,28 @@ export default {
         .then((res) => {
           alert("로그인에 성공했습니다123456.");
           state.account = res.data;
-          console.log(res);
-
-          if (res.status === "success") {
-            localStorage.setItem("admin", JSON.stringify(res));
-            state.account.check = res.data.role;
-            if(res.data.role === "AA"){
-              this.$router.push('/');
-            }else{ 
-              this.$router.push('/about'); 
-            }
-
+          if (res.status == 200) {
+            localStorage.setItem("email", JSON.stringify(res.data.email));
+            localStorage.setItem(
+              "first_name",
+              JSON.stringify(res.data.first_name)
+            );
+            localStorage.setItem(
+              "last_name",
+              JSON.stringify(res.data.last_name)
+            );
+            localStorage.setItem("role", JSON.stringify(res.data.role));
+             location.reload();
           }
         })
         .catch(() => {
           alert("login Fail.");
+           location.reload();
         });
     };
-    
+   
     return { state, submit };
   },
-  
 };
 </script>
 
